@@ -1,33 +1,73 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Threading.Tasks;
-using IquiriumBe.Domain.Interfaces;
+﻿using IquiriumBE.Domain.Interfaces;
+using IquiriumBE.Infrastructure.Interfaces.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace IquiriumBe.Infrastructure
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DbContext _context;
+        private IDbContextTransaction _currentTransaction;
         private bool _disposed = false;
+        public IProductRepository Product { get; }
+        public IProductFeedbackRepository ProductFeedback { get; }
 
-        public UnitOfWork(DbContext context)
+
+
+        public UnitOfWork(
+            ApplicationDbContext context,
+            IProductRepository productRepository,
+            IProductFeedbackRepository productFeedbackRepository
+            
+            )
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            this.Product = productRepository ?? throw new ArgumentNullException();
+            this.ProductFeedback = productFeedbackRepository ?? throw new ArgumentNullException();
+
         }
 
+        // Iniciar uma transação
+        public async Task BeginTransactionAsync()
+        {
+            if (_currentTransaction == null)
+            {
+                _currentTransaction = await _context.Database.BeginTransactionAsync();
+            }
+        }
+
+        // Confirmar as mudanças
         public async Task<int> CommitAsync()
         {
             try
             {
-                return await _context.SaveChangesAsync();
+                int result = await _context.SaveChangesAsync();
+                if (_currentTransaction != null)
+                {
+                    await _currentTransaction.CommitAsync();
+                    await _currentTransaction.DisposeAsync();
+                    _currentTransaction = null;
+                }
+                return result;
             }
-            catch (Exception ex) { 
+            catch (Exception ex)
+            {
+                await RollbackAsync();
                 throw new Exception("Ocorreu um erro ao salvar as mudanças.", ex);
             }
         }
 
-        public void Rollback()
+        // Reverter as mudanças
+        public async Task RollbackAsync()
         {
+            if (_currentTransaction != null)
+            {
+                await _currentTransaction.RollbackAsync();
+                await _currentTransaction.DisposeAsync();
+                _currentTransaction = null;
+            }
+
             foreach (var entry in _context.ChangeTracker.Entries())
             {
                 switch (entry.State)

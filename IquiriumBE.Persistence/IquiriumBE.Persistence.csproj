@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IquiriumBE.Domain\IquiriumBE.Domain.csproj" />
+    <ProjectReference Include="..\IquiriumBE.Infrastructure\IquiriumBE.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

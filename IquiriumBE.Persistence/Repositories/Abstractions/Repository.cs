@@ -1,9 +1,7 @@
-﻿using IquiriumBe.Domain.Interfaces;
+﻿using IquiriumBE.Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
-namespace IquiriumBe.Infrastructure.Abstractions
+namespace IquiriumBE.Infrastructure.Abstractions
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
@@ -14,12 +12,12 @@ namespace IquiriumBe.Infrastructure.Abstractions
             _context = context;
         }
 
-        public async Task<T> GetByIdAsync(string id)
+        public async Task<T> GetByIdAsync(Guid id)
         {
             return await _context.Set<T>().FindAsync(id);
         }
 
-        public async Task<List<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _context.Set<T>().ToListAsync();
         }

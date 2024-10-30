@@ -3,15 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IquiriumBE.Api", "IquiriumBE.Api\IquiriumBE.Api.csproj", "{EACB9838-8C8D-4A81-BD97-A738B8753FF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IquiriumBE.Api", "IquiriumBE.Api\IquiriumBE.Api.csproj", "{EACB9838-8C8D-4A81-BD97-A738B8753FF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IquiriumBE.Application", "IquiriumBE.Application\IquiriumBE.Application.csproj", "{5067BEBA-2877-4450-A3F9-B8E17DE73724}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IquiriumBE.Application", "IquiriumBE.Application\IquiriumBE.Application.csproj", "{5067BEBA-2877-4450-A3F9-B8E17DE73724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IquiriumBE.Intrastructure", "IquiriumBE.Intrastructure\IquiriumBE.Intrastructure.csproj", "{232FC45D-F931-4019-AEF8-7226DE51C357}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IquiriumBE.Persistence", "IquiriumBE.Persistence\IquiriumBE.Persistence.csproj", "{17A8A02F-E90E-479C-AFC4-2493237CF77A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IquiriumBe.Domain", "Domain\IquiriumBe.Domain.csproj", "{68F99453-6E49-458F-B864-A46E7E4696DA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{D6503DE8-500A-4E3E-A741-586480AA219B}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IquiriumBE.Persistence", "IquiriumBE.Persistence\IquiriumBE.Persistence.csproj", "{17A8A02F-E90E-479C-AFC4-2493237CF77A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IquiriumBE.Infrastructure", "IquiriumBE.Infrastructure\IquiriumBE.Infrastructure.csproj", "{DCD03135-E68F-47E4-B234-55573662069F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IquiriumBE.Domain", "IquiriumBE.Domain\IquiriumBE.Domain.csproj", "{43F0C302-3088-4A57-B77D-6D37AAEE8B4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,18 +32,18 @@ Global
 		{5067BEBA-2877-4450-A3F9-B8E17DE73724}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5067BEBA-2877-4450-A3F9-B8E17DE73724}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5067BEBA-2877-4450-A3F9-B8E17DE73724}.Release|Any CPU.Build.0 = Release|Any CPU
-		{232FC45D-F931-4019-AEF8-7226DE51C357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{232FC45D-F931-4019-AEF8-7226DE51C357}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{232FC45D-F931-4019-AEF8-7226DE51C357}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{232FC45D-F931-4019-AEF8-7226DE51C357}.Release|Any CPU.Build.0 = Release|Any CPU
-		{68F99453-6E49-458F-B864-A46E7E4696DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68F99453-6E49-458F-B864-A46E7E4696DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68F99453-6E49-458F-B864-A46E7E4696DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68F99453-6E49-458F-B864-A46E7E4696DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{17A8A02F-E90E-479C-AFC4-2493237CF77A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{17A8A02F-E90E-479C-AFC4-2493237CF77A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17A8A02F-E90E-479C-AFC4-2493237CF77A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17A8A02F-E90E-479C-AFC4-2493237CF77A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCD03135-E68F-47E4-B234-55573662069F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCD03135-E68F-47E4-B234-55573662069F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCD03135-E68F-47E4-B234-55573662069F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCD03135-E68F-47E4-B234-55573662069F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43F0C302-3088-4A57-B77D-6D37AAEE8B4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43F0C302-3088-4A57-B77D-6D37AAEE8B4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43F0C302-3088-4A57-B77D-6D37AAEE8B4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43F0C302-3088-4A57-B77D-6D37AAEE8B4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

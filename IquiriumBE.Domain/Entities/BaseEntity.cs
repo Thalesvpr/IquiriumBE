@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IquiriumBe.Domain.Entities
+namespace IquiriumBE.Domain.Entities
 {
     public abstract class BaseEntity
     {
